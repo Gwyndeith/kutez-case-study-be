@@ -30,7 +30,6 @@ public class ProductService {
 //        return productRepository.findBy()
 //    }
 
-    @PutMapping
     public Product updateProduct(@RequestBody Product product) {
         Product existingProduct = productRepository.findById(product.getId()).get();
         existingProduct.setName(product.getName());
@@ -40,7 +39,6 @@ public class ProductService {
         return productRepository.save(existingProduct);
     }
 
-    @DeleteMapping("${productID}")
     public void deleteProductById(@PathVariable String productID) {
         productRepository.deleteById(productID);
     }
